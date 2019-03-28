@@ -1,0 +1,31 @@
+#include "CEmployee.h"
+#include"string.h"
+#include"iostream"
+#include "CDate.h"
+using namespace std;
+int main()
+{
+	CEmployee e1;
+	CDate d1;
+	int a;
+	long i;
+	char s,str[19],na[20];
+	cout<<"请输入员工姓名:";
+	cin>>na;
+	cout<<"性别(m代表男性f代表女性)";
+	cin>>s;
+	cout<<"年龄";
+	cin>>a;
+	cout<<"工号";
+	cin>>i;
+	cout<<"身份证号码：";
+	cin>>str; 
+	e1.setinfo(na,a,i,s);
+	d1.indentity(str);
+	a=d1.gety();
+	d1.getm();
+    d1.getd();
+    e1.disply();
+    d1.disply();
+	return 0;
+} 
