@@ -1,3 +1,123 @@
+#ifndef CEMPLOYEE_H
+#define CEMPLOYEE_H
+#include"string"
+#include"iostream"
+using namespace std;
+class CEmployee
+{
+	public:
+		CEmployee();
+		void setinfo(string,int,long,char);//姓名年龄工号性别 
+		void disply();
+		~CEmployee();
+	protected:
+		string name;
+		char sex;
+		long id;
+		int age;
+};
+
+#endif
+#include "CEmployee.h"
+#include"string.h"
+#include"iostream"
+using namespace std;
+CEmployee::CEmployee()
+{
+}
+
+CEmployee::~CEmployee()
+{
+}
+
+void CEmployee::setinfo(string na,int a,long i,char s)//姓名年龄工号性别 
+{
+	name=na;
+	id=i;
+	sex=s;
+	age=a;
+}
+
+void CEmployee::disply()
+{
+	cout<<"性名："<<name<<"   工号："<<id<<"    性别："<<sex<<endl;
+}
+
+#ifndef CDATE_H
+#define CDATE_H
+#include"string"
+#include"iostream"
+using namespace std;
+class CDate
+{
+	public:
+		void indentity(char str[]);
+		void disply();
+		CDate(int y=2019,int m=3,int d=24)
+		{
+			year=y;month=m;day=d;
+		}
+
+		int gety();
+		int getm();
+		int getd();
+		~CDate();
+	protected:
+		int year,month,day;
+		char inde[19];
+};
+
+#endif
+
+#include "CDate.h"
+#include"string.h"
+#include"iostream"
+using namespace std;
+void CDate::indentity(char str[])//输入身份证 
+{
+	for(int i=0;i<18;i++) 
+	    inde[i]=str[i];
+}
+
+int CDate::gety()//获取出生年 
+{
+	int a=0;
+	for(int i=6;i<10;i++)
+	{
+		a=a*10+(inde[i]-'0');
+	}
+	return a;
+}
+
+int CDate::getm()//月 
+{
+	int a=0;
+	for(int i=10;i<12;i++)
+	{
+		a=a*10+(inde[i]-'0');
+	}
+	return a;
+}
+
+int CDate::getd()//日 
+{
+	int a=0;
+	for(int i=12;i<14;i++)
+	{
+		a=a*10+(inde[i]-'0');
+	}
+	return a;
+}
+
+void CDate::disply()
+{
+	cout<<"出生年月日:"<<gety()<<"-"<<getm()<<"-"<<getd()<<endl;
+	cout<<"入职时间："<<year<<"年"<<month<<"月"<<day<<"日"<<endl;
+}
+CDate::~CDate()
+{
+}
+
 #include "CEmployee.h"
 #include"string.h"
 #include"iostream"
